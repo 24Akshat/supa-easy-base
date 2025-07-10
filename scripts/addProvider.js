@@ -57,7 +57,9 @@ Paste it below:
       }
     ]);
     serviceKey = key;
-    fs.appendFileSync(path.resolve(__dirname, '../.env'), `SUPABASE_SERVICE_ROLE_KEY=${serviceKey}\n`);
+    const envContent = `SUPABASE_SERVICE_ROLE_KEY=${serviceKey}`;
+
+    fs.writeFileSync('../.env', envContent);
     console.log('✅ Saved Service Role Key to .env');
   }
 
@@ -94,12 +96,10 @@ Paste it below:
   ]);
 
   // Save credentials to .env
-  const envPath = path.resolve(__dirname, '../.env');
-  fs.appendFileSync(
-    envPath,
-    `${provider.name.toUpperCase()}_CLIENT_ID=${credentials.clientId}\n${provider.name.toUpperCase()}_CLIENT_SECRET=${credentials.clientSecret}\n`
-  );
+    const envContentNew = `GOOGLE_CLIENT_ID=${credentials.clientId}
+    GOOGLE_SECRET=${credentials.clientSecret}`;
 
+    fs.writeFileSync('../.env', envContentNew);
   console.log(`
 ✅ Saved ${provider.name} Client ID and Secret to .env.
 
