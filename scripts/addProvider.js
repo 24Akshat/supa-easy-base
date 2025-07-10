@@ -1,7 +1,6 @@
 import inquirer from 'inquirer';
 import dotenv from 'dotenv';
 import open from 'open';
-import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -14,12 +13,10 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 const PROVIDER_INFO = {
   google: {
     consoleUrl: 'https://console.cloud.google.com/apis/credentials',
-    supabaseId: 'google',
     name: 'Google'
   },
   github: {
     consoleUrl: 'https://github.com/settings/developers',
-    supabaseId: 'github',
     name: 'GitHub'
   }
 };
@@ -96,30 +93,31 @@ Paste it below:
     }
   ]);
 
-  const configUrl = `${SUPABASE_URL}/auth/v1/admin/config`;
+  // Save credentials to .env
+  const envPath = path.resolve(__dirname, '../.env');
+  fs.appendFileSync(
+    envPath,
+    `${provider.name.toUpperCase()}_CLIENT_ID=${credentials.clientId}\n${provider.name.toUpperCase()}_CLIENT_SECRET=${credentials.clientSecret}\n`
+  );
 
-  try {
-    await axios.patch(
-      configUrl,
-      {
-        external: {
-          [provider.supabaseId]: {
-            client_id: credentials.clientId,
-            secret: credentials.clientSecret
-          }
-        }
-      },
-      {
-        headers: {
-          apikey: serviceKey,
-          Authorization: `Bearer ${serviceKey}`,
-          'Content-Type': 'application/json'
-        }
-      }
-    );
+  console.log(`
+✅ Saved ${provider.name} Client ID and Secret to .env.
 
-    console.log(`✅ ${provider.name} OAuth provider configured successfully!`);
-  } catch (err) {
-    console.error(`❌ Failed to configure ${provider.name}:`, err.response?.data || err.message);
-  }
+===============================================
+🚀 Final Steps:
+
+1️⃣ In the Supabase Dashboard, go to:
+   https://app.supabase.com/project/YOUR_PROJECT_REF/auth/providers
+
+2️⃣ Scroll to the "${provider.name}" provider section.
+
+3️⃣ Paste the credentials you just saved in .env:
+   - Client ID: ${credentials.clientId}
+   - Client Secret: ${credentials.clientSecret}
+
+4️⃣ Click "Enable" and "Save".
+
+✅ Done! Your ${provider.name} OAuth setup is complete.
+===============================================
+  `);
 }
