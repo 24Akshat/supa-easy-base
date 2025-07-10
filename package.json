@@ -1,6 +1,6 @@
 {
   "name": "supa-easy-base",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI to set up Supabase Auth with Google & GitHub OAuth and prebuilt Sign-In components",
   "bin": {
     "supa-easy-base": "./index.js"
