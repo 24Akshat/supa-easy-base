@@ -1,32 +1,38 @@
-# ⚡️ supa-easy-base
+<h1 align="center">
+  ⚡️ supa-easy-base
+</h1>
 
-> The fastest way to set up Supabase Auth with Google & GitHub OAuth and prebuilt Sign-In components for MERN & Next.js—no boilerplate, no confusion.
+<p align="center">
+  🚀 A CLI to set up Supabase Auth with Google & GitHub OAuth, plus ready-made Sign-In components for MERN & Next.js.
+</p>
 
----
-
-## 🚀 What is this?
-
-**supa-easy-base** is a CLI tool that automates the *entire* Supabase Auth setup process:
-
-✅ Initializes your project credentials  
-✅ Configures OAuth providers (Google & GitHub) step-by-step  
-✅ Generates ready-to-use React SignIn components  
-✅ Works with **MERN** or **Next.js**
-
----
-
-## ✨ Why use this?
-
-- Stop copying environment variables manually
-- Stop Googling "how to set up Supabase OAuth"
-- Get clean, production-ready components you can **drop into your app in seconds**
+<p align="center">
+  <a href="https://www.npmjs.com/package/supa-easy-base">
+    <img src="https://img.shields.io/npm/v/supa-easy-base?color=blue" alt="npm version" />
+  </a>
+  <a href="https://github.com/YOUR-USERNAME/supa-easy-base/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="license" />
+  </a>
+</p>
 
 ---
 
-## 🛠 Installation
+## ✨ What is this?
 
-Clone this repo to your project directory:
+**supa-easy-base** is a CLI tool that automates your Supabase Auth workflow:
+
+✅ Initializes Supabase project credentials  
+✅ Configures OAuth providers step by step (Google & GitHub)  
+✅ Generates ready-to-use Sign-In components  
+✅ Works with **MERN** and **Next.js**  
+
+No boilerplate. No guesswork. Just fast setup.
+
+---
+
+## 🚀 Installation
+
+**Using `npx`:**
 
 ```bash
-git clone https://github.com/your-username/supa-easy-base.git
-cd supa-easy-base
+npx supa-easy-base
