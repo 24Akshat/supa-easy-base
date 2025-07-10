@@ -10,7 +10,7 @@
   <a href="https://www.npmjs.com/package/supa-easy-base">
     <img src="https://img.shields.io/npm/v/supa-easy-base?color=blue" alt="npm version" />
   </a>
-  <a href="https://github.com/YOUR-USERNAME/supa-easy-base/blob/main/LICENSE">
+  <a href="https://github.com/24Akshat/supa-easy-base/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="license" />
   </a>
 </p>
